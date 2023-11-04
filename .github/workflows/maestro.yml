@@ -34,7 +34,8 @@ jobs:
     runs-on: [self-hosted]
     steps: 
     - name: Run tests
-      run: maestro test --include-tags=ready /Users/cobe/Documents/sprayManagerMaestro/tests   
+      run: echo $JAVA_HOME |
+          maestro test --include-tags=ready /Users/cobe/Documents/sprayManagerMaestro/tests   
     
   
   
