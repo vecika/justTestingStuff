@@ -11,5 +11,11 @@ jobs:
     steps:
     - name: Contact
       run: echo Hello, world!
+  Build_APK:
+    runs-on: [self-hosted]
+    steps:
+    - name: Build APK name
+      run: Build APK
+  
 
     
