@@ -6,12 +6,6 @@ on:
       - main
 
 jobs:
-  Open_ADB:
-    runs-on: [self-hosted]
-    steps: 
-      - name: Open emulator
-        run: /Users/cobe/Library/Android/sdk/emulator/emulator -avd Nexus_5_API_30
-    
   Build_APK:
     runs-on: [self-hosted]
     steps:
@@ -27,8 +21,10 @@ jobs:
     needs: Build_APK
     runs-on: [self-hosted]
     steps: 
-    - name: Install APK
-      run: adb install '/Users/cobe/IdeaProjects/s3-yellow/src/test/resources/apps/android/app-liveWagner-debug.apk'
+      - name: Open emulator
+        run: /Users/cobe/Library/Android/sdk/emulator/emulator -avd Nexus_5_API_30
+      - name: Install APK
+        run: adb install '/Users/cobe/IdeaProjects/s3-yellow/src/test/resources/apps/android/app-liveWagner-debug.apk'
 ##
   Run_e2e_tests:
     needs: Install_Build_On_Emulator
