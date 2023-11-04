@@ -15,10 +15,10 @@ jobs:
     needs: Echo_workflow
     runs-on: [self-hosted]
     steps:
-##    - uses: actions/setup-java@v3
- ##     with:
- ##       distribution: 'corretto'
- ##       java-version: '17'
+    - uses: actions/setup-java@v3
+      with:
+        distribution: 'corretto'
+        java-version: '17'
     - name: Build APK name
       run: ./gradlew assembleRelease
 ###
@@ -33,6 +33,10 @@ jobs:
     needs: Install_Build_On_Emulator
     runs-on: [self-hosted]
     steps: 
+    - uses: actions/setup-java@v3
+      with:
+        distribution: 'corretto'
+        java-version: '17'
     - name: Run tests
       run: maestro test --include-tags=ready /Users/cobe/Documents/sprayManagerMaestro/tests   
     
