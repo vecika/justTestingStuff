@@ -22,6 +22,22 @@ jobs:
         java-version: 17
     - name: Build APK name
       run: ./gradlew assembleRelease
+###
+  Install_Build_On_Emulator:
+    needs: Build_APK
+    runs-on: [self-hosted]
+    steps: 
+    - name: Install APK
+      run: adb install '/Users/cobe/IdeaProjects/s3-yellow/src/test/resources/apps/android/app-liveWagner-debug.apk'
+##
+  Run_e2e_tests:
+    needs: Install_Build_On_Emulator
+    runs-on: [self-hosted]
+    steps: 
+    - name: Run tests
+      run: maestro test --include-tags=ready /Users/cobe/Documents/sprayManagerMaestro/tests   
+    
+  
   
 
     
