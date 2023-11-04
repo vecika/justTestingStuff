@@ -29,7 +29,7 @@ jobs:
     runs-on: [self-hosted]
     steps: 
       - name: Open emulator
-        run: /Users/cobe/Library/Android/sdk/emulator/emulator -avd Nexus_5_API_30
+        run: nohup /Users/cobe/Library/Android/sdk/emulator/emulator -avd Nexus_5_API_30 &
     
 ###
   Install_Build_On_Emulator:
