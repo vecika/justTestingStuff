@@ -24,7 +24,7 @@ jobs:
     
 ###
   Install_Build_On_Emulator:
-    needs: Open_ADB
+    needs: Build_APK
     runs-on: [self-hosted]
     steps: 
     - name: Install APK
