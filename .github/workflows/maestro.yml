@@ -17,33 +17,24 @@ jobs:
       run: ./gradlew assembleRelease
     
 ###
-  Install_Build_On_Emulator:
+  Run_e2e:
     needs: Build_APK
     runs-on: [self-hosted]
     steps: 
       - name: Open emulator
-        run: /Users/cobe/Library/Android/sdk/emulator/emulator -avd Nexus_5_API_30
+        run: nohup /Users/cobe/Library/Android/sdk/emulator/emulator -avd Nexus_5_API_30 $
       - name: Install APK
         run: adb install '/Users/cobe/IdeaProjects/s3-yellow/src/test/resources/apps/android/app-liveWagner-debug.apk'
-##
-  Run_e2e_tests:
-    needs: Install_Build_On_Emulator
-    runs-on: [self-hosted]
-    steps: 
-    - uses: actions/setup-java@v3
-      with:
-        distribution: 'corretto'
-        java-version: '17'
-    - name: Run tests
-      run: maestro --device emulator-5554 test --include-tags=ready /Users/cobe/Documents/sprayManagerMaestro/tests
-        
-  Kill_ADB:
-    needs: Run_e2e_tests
-    runs-on: [self-hosted]
-    steps:
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'corretto'
+          java-version: '17'
+      - name: Run tests
+        run: maestro --device emulator-5554 test --include-tags=ready /Users/cobe/Documents/sprayManagerMaestro/tests
       - name: Kill ADB
         run: adb -s emulator-5554 emu kill
-  
+    
+
   
 
     
