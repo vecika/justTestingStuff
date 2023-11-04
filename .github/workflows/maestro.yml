@@ -1,0 +1,13 @@
+name: Testing maestro
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: [self-hosted]
+    steps:
+    - name: Contact
+      run: echo Hello, world!
