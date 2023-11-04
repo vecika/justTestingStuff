@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
- Open_ADB:
+  Open_ADB:
     needs: Build_APK
     runs-on: [self-hosted]
     steps: 
@@ -14,7 +14,6 @@ jobs:
         run: /Users/cobe/Library/Android/sdk/emulator/emulator -avd Nexus_5_API_30
     
   Build_APK:
-    needs: Echo_workflow
     runs-on: [self-hosted]
     steps:
     - uses: actions/setup-java@v3
