@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  Echo_workflow:
     runs-on: [self-hosted]
     steps:
     - name: Contact
