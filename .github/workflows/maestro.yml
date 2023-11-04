@@ -38,7 +38,9 @@ jobs:
         distribution: 'corretto'
         java-version: '17'
     - name: Run tests
-      run: maestro test --device emulator-5554 --include-tags=ready /Users/cobe/Documents/sprayManagerMaestro/tests   
+      run: |
+        maestro --device emulator-5554 test 
+        maestro test --device emulator-5554 --include-tags=ready /Users/cobe/Documents/sprayManagerMaestro/tests   
     
   
   
