@@ -12,10 +12,11 @@ jobs:
     - name: Contact
       run: echo Hello, world!
   Build_APK:
+    needs: Echo_workflow
     runs-on: [self-hosted]
     steps:
     - name: Build APK name
-      run: Build APK
+      run: echo Build APK
   
 
     
