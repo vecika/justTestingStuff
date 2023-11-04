@@ -7,7 +7,6 @@ on:
 
 jobs:
   Open_ADB:
-    needs: Build_APK
     runs-on: [self-hosted]
     steps: 
       - name: Open emulator
